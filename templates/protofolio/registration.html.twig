@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<!-- local fonts -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/style.css') }}">
+ 	<!-- font awesome -->
+ 	<link rel="stylesheet" type="text/css" href="{{ asset('librairy/fontawesome-5.12.0/css/all.min.css') }}">
+  <!-- lcoal css -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/registration.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
+</head>
+<body>
+
+
+
+  <header class="box">
+    <nav>
+      <div class="logo-container">
+        <img src="./img/logo.png" width="100">
+      </div>
+      <ul>
+        <li class="active"><a href="{{ path('index') }}">ACCUEIL</a></li>
+        <li class="active"><a href="{{ path('contact') }}">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+
+<div class="body-container">
+
+<div class="img-back-div" style="flex: 1; position: relative; background: url('./img/undraw_lost_online_wqob.svg') no-repeat left top; background-size: 100%;">
+</div>
+
+<img class="img-back" src="./img/undraw_lost_online_wqob.svg" alt="">
+
+<div class="login-container">
+    <div class="login-box">
+      <div style="position: relative; top: 15%">
+        <p class="login-txt">crée un compte</p>
+        <center>
+          <p class="user-icon"><i class="fas fa-user-circle"></i></p>
+        </center>
+
+        <div style="width: 100%; position: relative;">
+       
+        <div class="centered">
+
+          {{form_start(form)}}
+
+
+
+          <div class="group {% if not form.prenom_prs.vars.valid %}error{% endif %}">
+            {{ form_widget(form.prenom_prs) }}
+            <label style="color: #886E0F;" for="prenom">Prenom 
+            <span>{% if not form.prenom_prs.vars.valid %}( {{form.prenom_prs.vars.errors|replace({'ERROR:':''})}} ){% endif %}</span>
+            </label>
+            <div class="bar bar-regis"></div>
+          </div>
+
+          <div class="group {% if not form.nom_prs.vars.valid %}error{% endif %}">
+            {{ form_widget(form.nom_prs) }}
+            <label style="color: #886E0F;" for="nom">Nom 
+            <span>{% if not form.nom_prs.vars.valid %} ( {{form.nom_prs.vars.errors|replace({'ERROR:':''})}} ){% endif %}</span>
+            </label>
+            <div class="bar bar-regis"></div>
+          </div>
+
+          <div class="group {% if not form.email_prs.vars.valid %}error{% endif %}">
+            {{ form_widget(form.email_prs) }}
+            <label style="color: #886E0F;" for="email">Email 
+            <span>{% if not form.email_prs.vars.valid %}( {{form.email_prs.vars.errors|replace({'ERROR:':''})}} ){% endif %}</span>
+            </label>
+            <div class="bar bar-regis"></div>
+          </div>
+
+          <div class="group {% if not form.mdp_prs.vars.valid %}error{% endif %}">
+            {{ form_widget(form.mdp_prs) }}
+            <label style="color: #886E0F;" for="mdp">Mot de Passe 
+            <span> {% if not form.mdp_prs.vars.valid %}( {{form.mdp_prs.vars.errors|replace({'ERROR:':''})}} ){% endif %}</span>
+            </label>
+            <div class="bar bar-regis"></div>
+          </div>
+
+          <div class="group">
+            <input type="password" name="mdp_repeat_prs" id="pwd_repeat"/>
+            <label style="color: #886E0F;" for="pwd_repeat">Répétez votre mot de passe</label>
+            <div class="bar bar-regis"></div>
+        </div>
+
+
+        <div class="group tg-list-item">
+          <input class="tgl tgl-light" name="conditions_prs" id="cb2" type="checkbox"/>
+          <label style="color: #886E0F;" class="tgl-btn" for="cb2"></label>
+          <p id="conditions">
+          <span class="cond_accept_off">j ai lu et j'accepte les <a href="#conditions-generales">conditions générales d'utilisation</a></span> 
+          <span class="cond_accept_on"></span>
+        </p>
+        </div>
+
+        <center>
+
+          <p class="p-account">Vous avez déjà un compte ? <a href="{{ path('app_login') }}">se connecter</a></p>
+        </center>
+
+        <div class="buttons">
+          <button type="submit" class="blob-btn" style="z-index: 0;">
+            SIGN UP
+            <span class="blob-btn__inner">
+              <span class="blob-btn__blobs">
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+              </span>
+            </span>
+          </button>
+          <br/>
+      </div>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+              <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+            </filter>
+          </defs>
+        </svg>
+
+          {{form_end(form)}}
+
+            
+        </div>
+
+                
+            </div>
+        </form>
+        
+        <div id="alert-area" class="alert-area"></div>
+
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+<div id="conditions-generales" class="modal-window">
+  <div>
+    <a href="#" title="Close" class="modal-close">Fermer</a>
+    <h1>Mentions légales</h1>
+    <p>Cette page décrit les mentions légales qui s'appliquent à tout internaute visitant ce site. En le consultant vous vous engagez sans réserve à les respecter. Les mentions légales pouvant être modifiées à tout moment et sans préavis, nous vous invitons à les consulter régulièrement.</p>
+    <h2>Conditions d'utilisation</h2>
+    <p>Notre site n'est en aucun cas responsable du contenu généré par l'utilisateur. Le contenu posté exprime les opinions de leur auteur seulement. Les textes et messages publiés sont la propriété de ceux qui les postent. Nous faisons notre possible pour modérer les propos inappropriés qui pourraient être postés ici, mais nous nous dégageons de toute responsabilité sur ce que vous postez. Vous demeurez le seul responsable de vos actes et de vos messages au regard de la loi.
+
+      Vous acceptez de ne pas utiliser le service pour poster ou lier vers un contenu qui est diffamatoire, injurieux, haineux, menaçant, spams ou pourriels, étant de nature à offenser, ayant un contenu réservé aux adultes ou répréhensible, contenant des renseignements personnels des autres, risquant de violer les droits d'auteurs, encourageant une activité illégale ou contraire à toutes les lois.
+      
+      Le respect est la principale qualité de notre communauté. Tout manque de respect à l'encontre d'un membre, néophyte ou non, entraînera également des sanctions, à savoir avertissements, bannissements voire poursuites selon la gravité de la situation.
+      
+      notre site décline toute responsabilité concernant les rencontres réelles.</p>
+
+      <h2>Informations nominatives et données personnelles</h2>
+
+      <p>Notre site ne divulguera pas à des tiers les données personnelles vous concernant que vous pourriez lui communiquer. Elles ne seront utilisées que dans le but de vous répondre le plus efficacement possible.</p>
+   
+        <h2>Dispositions juridictionnelles</h2>
+
+        <p>Le site et son contenu sont régis par le Droit Français, et tout litige éventuel s'y rapportant sera soumis à la compétence des tribunaux français.</p>
+
+    </div>
+</div>
+
+<footer>
+	<div class="footer-flex" style="position: relative;top: 50px;">
+		<ul class="footer-infos">
+			<li><i class="fas fa-phone-alt"></i><span>06 09 98 98 98</span></li>
+			<li><i class="fas fa-envelope"></i><span>email@gmail.com</span></li>
+			<li><i class="fas fa-map-marker-alt"></i><span>Rennes, France</span></li>
+		</ul>
+		<div class="footer-links">
+			<a target="_ublank" href="https://github.com/ilyass200"><i class="fab fa-github"></i></a>
+			<a target="_ublank" href="https://www.linkedin.com/in/ilyass-ajdaini"><i class="fab fa-linkedin-in"></i></a>
+		</div>
+	</div>
+	<div class="copyright">
+		<center>
+			<p>© 2019 copyright AJDAINI ILYASS</p>
+		</center>
+	</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{ asset('js/alert_box.js') }}"></script>
+<script>
+</script>
+
+
+
+<script>
+
+var alertbox = new AlertBox('#alert-area', {
+  closeTime: 5000,
+  persistent: false,
+  hideCloseButton: false
+});
+
+
+
+let form_response = JSON.parse( {{form_response|json_encode|raw }} );
+let alert_area = document.querySelector('.alert-area');
+
+if(!form_response.success)
+{
+  alertbox.show(form_response.message);
+  let alert_box = document.querySelector('.alert-box');
+  alert_box.classList.add('error')
+}
+else
+{
+  alertbox.show(form_response.message);
+  let alert_box = document.querySelector('.alert-box');
+  alert_box.classList.add('success')
+}
+
+
+var btnRadius = $('.cd-modal-bg').width()/2,
+    left = $('.cd-modal-bg').offset().left + btnRadius,
+    top = $('.cd-modal-bg').offset().top + btnRadius - $(window).scrollTop(),
+    scale = scaleValue(top, left, btnRadius, $(window).height(), $(window).width());
+
+function scaleValue( topValue, leftValue, radiusValue, windowW, windowH) {
+   var maxDistHor = ( leftValue > windowW/2) ? leftValue : (windowW - leftValue),
+       maxDistVert = ( topValue > windowH/2) ? topValue : (windowH - topValue);
+   return Math.ceil(Math.sqrt( Math.pow(maxDistHor, 2) + Math.pow(maxDistVert, 2) )/radiusValue);
+}
+</script>
+</body>
+</html>

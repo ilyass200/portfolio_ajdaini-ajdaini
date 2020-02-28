@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>contact - AJDAINI ILYASS</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/contact.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
+	<!-- local fonts -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/style.css') }}">
+ 	<!-- font awesome -->
+	 <link rel="stylesheet" type="text/css" href="{{ asset('librairy/fontawesome-5.12.0/css/all.min.css') }}">
+</head>
+<body>
+
+
+<header class="box">
+	<nav>
+		<div class="logo-container">
+			<img src="./img/logo.png" width="100">
+		</div>
+		<ul>
+			{% if not app.user %}<li class="active"><a href="{{ path('app_login') }}">SE CONNECTER</a></li>{% endif %}
+			<li class="active"><a href="{{ path('index' )}}">ACCUEIL</a></li>
+		</ul>
+	</nav>
+	
+	<div class="back-img">
+				<div id="contact-text">
+					<h1>CONTACTEZ MOI !</h1>
+					<p style="margin-top: -20px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, <br>sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+				<div>
+		   			<img src="../img/hiclipart.com.png" width="300" style="position: absolute; right: 0;">
+				</div>
+	</div>
+
+</header>
+
+<main>
+
+	{% if continue['status'] %}
+
+		{% for error in errors %}
+		<div class="alert error"><i class="fas fa-times-circle" style="font-size: 30px; padding-right: 6px; position: relative; top: 5px;"></i> {{error.message}}</div>
+		{% endfor %}
+
+		{% for error in errors_contact %}
+		<div class="alert error"><i class="fas fa-times-circle" style="font-size: 30px; padding-right: 6px; position: relative; top: 5px;"></i> {{error.message}}</div>
+		{% endfor %}
+
+	{% else %}
+	
+	<div class="alert error"><i class="fas fa-times-circle" style="font-size: 30px; padding-right: 6px; position: relative; top: 5px;"></i> {{continue['message']}}</div>
+
+	{% endif %}
+
+	{% if success %}
+	<div class="alert success"><i class="fas fa-check-circle" style="font-size: 30px; padding-right: 6px; position: relative; top: 5px;"></i>votre message a bien été envoyé !</div>
+	{% endif %}
+
+	{{form_start(form)}}
+	{% set sujet = form.sujet %}
+	{% set ville = form.ville %}
+	{% set message = form.message %}
+
+
+	{% if not app.user %}
+
+	<div class="input-group ">
+		<label for="nom">Nom</label>
+		<input type="text" id="nom" name="nom" />
+	</div>
+
+	<div class="input-group ">
+		<label for="prenom">Prenom</label>
+		<input type="text" id="prenom" name="prenom" />
+	</div>
+
+	<div class="input-group ">
+		<label for="email">Email</label>
+		<input type="text" id="email" name="email" />
+	</div>
+
+	{% endif %}
+
+
+	<div class="input-group {% if not sujet.vars.valid %}error{% endif %}">
+		{{ form_label(sujet) }}
+		{{ form_widget(sujet) }}
+	</div>
+
+	<div class="input-group {% if not ville.vars.valid %}error{% endif %}">
+		{{ form_label(ville) }}
+		{{ form_widget(ville) }}
+	</div>
+
+	<div class="input-group {% if not message.vars.valid %}error{% endif %}">
+		{{ form_label(message) }}
+		{{ form_widget(message) }}
+	</div>	
+
+
+	<div id="checkbox-box" style="font-family: 'Gilroy-Bold ☞';">
+		<input id="conditions" type="checkbox" name="conditions" style="display: none;">
+		<label for="conditions" class="toggle"><span></span></label>
+		<p style="color: #525151;"><i style="color: #D96262" class="fas fa-exclamation-triangle"></i> J'autorise ce site à conserver mes donneés personnelles transmises via ce formulaire.
+			Aucune exploitation commerciale ne sera faite des données conservées.
+			Voir <a href="#conditions-generales">notre politique de gestion des données personnelles.</a></p>
+
+	</div> 	
+
+	{{ form_widget(form.valid,{'attr':{'class':'button_msg'}})}}
+
+	{{form_end(form)}}
+
+      	
+</main>
+
+<div id="conditions-generales" class="modal-window">
+	<div>
+	  <a href="#" title="Close" class="modal-close">Fermer</a>
+	  <h1>Mentions légales</h1>
+	  <p>Cette page décrit les mentions légales qui s'appliquent à tout internaute visitant ce site. En le consultant vous vous engagez sans réserve à les respecter. Les mentions légales pouvant être modifiées à tout moment et sans préavis, nous vous invitons à les consulter régulièrement.</p>
+	  <h2>Conditions d'utilisation</h2>
+	  <p>Notre site n'est en aucun cas responsable du contenu généré par l'utilisateur. Le contenu posté exprime les opinions de leur auteur seulement. Les textes et messages publiés sont la propriété de ceux qui les postent. Nous faisons notre possible pour modérer les propos inappropriés qui pourraient être postés ici, mais nous nous dégageons de toute responsabilité sur ce que vous postez. Vous demeurez le seul responsable de vos actes et de vos messages au regard de la loi.
+  
+		Vous acceptez de ne pas utiliser le service pour poster ou lier vers un contenu qui est diffamatoire, injurieux, haineux, menaçant, spams ou pourriels, étant de nature à offenser, ayant un contenu réservé aux adultes ou répréhensible, contenant des renseignements personnels des autres, risquant de violer les droits d'auteurs, encourageant une activité illégale ou contraire à toutes les lois.
+		
+		Le respect est la principale qualité de notre communauté. Tout manque de respect à l'encontre d'un membre, néophyte ou non, entraînera également des sanctions, à savoir avertissements, bannissements voire poursuites selon la gravité de la situation.
+		
+		notre site décline toute responsabilité concernant les rencontres réelles.</p>
+  
+		<h2>Informations nominatives et données personnelles</h2>
+  
+		<p>Notre site ne divulguera pas à des tiers les données personnelles vous concernant que vous pourriez lui communiquer. Elles ne seront utilisées que dans le but de vous répondre le plus efficacement possible.</p>
+	 
+		  <h2>Dispositions juridictionnelles</h2>
+  
+		  <p>Le site et son contenu sont régis par le Droit Français, et tout litige éventuel s'y rapportant sera soumis à la compétence des tribunaux français.</p>
+  
+	  </div>
+  </div>
+
+  {% if app.user %}
+
+  <div class="wrapper-circle">
+	<div class="circle pulse"></div>
+	<a href="{{ path('logout') }}" class="circle">
+	  <span style="font-size: 30px; color: rgb(28, 28, 28); position : relative; left: 22px; top: 20px;"><i class="fas fa-sign-out-alt"></i></span>
+	</a>
+  </div>
+
+{% endif %}
+
+
+<footer>
+	<div class="footer-flex" style="position: relative;top: 50px;">
+		<ul class="footer-infos">
+			<li><i class="fas fa-phone-alt"></i><span>06 09 98 98 98</span></li>
+			<li><i class="fas fa-envelope"></i><span>email@gmail.com</span></li>
+			<li><i class="fas fa-map-marker-alt"></i><span>Rennes, France</span></li>
+		</ul>
+		<div class="footer-links">
+			<a target="_ublank" href="https://github.com/ilyass200"><i class="fab fa-github"></i></a>
+			<a target="_ublank" href="https://www.linkedin.com/in/ilyass-ajdaini"><i class="fab fa-linkedin-in"></i></a>
+		</div>
+	</div>
+	<div class="copyright">
+		<center>
+			<p>© 2019 copyright AJDAINI ILYASS</p>
+		</center>
+	</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<!-- local fonts -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/fonts/style.css') }}">
+ 	<!-- font awesome -->
+ 	<link rel="stylesheet" type="text/css" href="{{ asset('librairy/fontawesome-5.12.0/css/all.min.css') }}">
+  <!-- lcoal css -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
+</head>
+
+
+<body>
+
+
+
+  <header class="box">
+    <nav>
+      <div class="logo-container">
+        <img src="./img/logo.png" width="100">
+      </div>
+      <ul>
+        <li><a href="../index.html">ACCUEIL</a></li>
+        <li class="active"><a href="./contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+    
+
+  
+  </header>
+
+
+<div class="body-container">
+
+<div class="img-back-div" style="flex: 1; position: relative; background: url('./img/undraw_lost_online_wqob.svg') no-repeat left top; background-size: 100%;">
+</div>
+
+<img class="img-back" src="./img/undraw_lost_online_wqob.svg" alt="">
+
+<div class="login-container">
+    <div class="login-box">
+      <div style="position: relative; top: 10%">
+        <p class="login-txt">LOGIN</p>
+        <p style="text-align:center; font-size: 80px; margin-top: 0;  margin-bottom: -10px; color: #886E0F;"><i class="fa fa-users"></i></p>
+        <form action="">
+            <div style="width: 100%; position: relative;">
+       
+        <div class="centered">
+
+            <div class="group">
+              <input type="text" id="email" required="required"/>
+              <label for="email">Name</label>
+              <div class="bar"></div>
+            </div>
+          
+            <div class="group">
+                <input type="password" id="pwd" required="required"/>
+                <label for="pwd">Password</label>
+                <div class="bar"></div>
+            </div>
+            
+        </div>
+
+            <div class="buttons">
+                <button class="blob-btn">
+                  LOG IN
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+                <br/>
+            </div>
+              
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                  <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                    <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+                  </filter>
+                </defs>
+              </svg>
+                
+            </div>
+        </form>
+
+      </div>
+    </div>
+</div>
+
+</div>
+<footer>
+	<div class="footer-flex" style="position: relative;top: 50px;">
+		<ul class="footer-infos">
+			<li><i class="fas fa-phone-alt"></i><span>06 09 98 98 98</span></li>
+			<li><i class="fas fa-envelope"></i><span>email@gmail.com</span></li>
+			<li><i class="fas fa-map-marker-alt"></i><span>Rennes, France</span></li>
+		</ul>
+		<div class="footer-links">
+			<a href="#github"><i class="fab fa-github"></i></a>
+			<a href="#linkedin"><i class="fab fa-linkedin-in"></i></a>
+		</div>
+	</div>
+	<div class="copyright">
+		<center>
+			<p>© 2019 copyright AJDAINI ILYASS</p>
+		</center>
+	</div>
+</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</body>
+</html>
