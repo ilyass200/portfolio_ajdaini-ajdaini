@@ -3,7 +3,7 @@ _Voici mon portfolio complet créé avec le framework Symfony 5.0.4, avec une pa
 
 ## Prérequis  
 * Avoir installé [Composer](https://getcomposer.org/download) (Composer est un logiciel gestionnaire de dépendances libre écrit en PHP)
-* Une version php supérieur à [7.2.5](https://www.php.net/releases/7_2_5.php)
+* Avoir une version PHP [7.3](https://www.php.net/downloads.php) ou supérieure
 
 ## Installer les dépendances 
 Grâce au fichier ```composer.json``` il va vous donner toutes les dépendances nécessaires pour faire fonctionner le site, placez-vous d'abord dans la racine du répertoire, puis lancez la commande suivante :
